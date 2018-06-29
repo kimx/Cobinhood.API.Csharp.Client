@@ -94,9 +94,9 @@ namespace Cobinhood.API.Csharp.Client
                     logger.Error(e.Exception, "An error has occurred!");
                     throw e.Exception;
                 };
-
+                ws.OnOpen += Ws_OnOpen;
                 ws.Connect();
-
+     
                 if (data != null)
                 {
                     var serializedData = JsonConvert.SerializeObject(data, Formatting.Indented, new JsonSerializerSettings
@@ -117,6 +117,11 @@ namespace Cobinhood.API.Csharp.Client
                 logger.Error(ex, "An error has occurred!");
                 throw ex;
             }
+        }
+
+        private void Ws_OnOpen(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

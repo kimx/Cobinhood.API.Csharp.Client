@@ -417,6 +417,20 @@ namespace Cobinhood.API.Csharp.Client
         #endregion
 
         #region WebkSockets
+        /// <summary>
+        /// Kim
+        /// </summary>
+        /// <param name="messageHandler"></param>
+        public void PingEndpoint(ApiClientAbstract.MessageHandler<OrderResponse> messageHandler)
+        {
+            var requestData = new WebSocketRequest()
+            {
+                Action = "ping",
+                ID = "sample_id"
+            };
+            _apiClient.SuscribeToWebSocket(messageHandler, requestData);
+        }
+
         /// <see cref="ICobinhoodClient.ListenOrderEndpoint(ApiClientAbstract.MessageHandler{OrderResponse})"/>
         public void ListenOrderEndpoint(ApiClientAbstract.MessageHandler<OrderResponse> messageHandler)
         {

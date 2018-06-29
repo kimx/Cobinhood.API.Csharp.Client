@@ -10,6 +10,14 @@ namespace Cobinhood.API.Csharp.Client.Models.WebSocket
 {
     public class WebSocketRequest
     {
+        public WebSocketRequest()
+        {
+            this.Version = 2;
+        }
+        [JsonProperty("Version")]
+        [DefaultValue("")]
+        public double Version { get; set; }
+
         [JsonProperty("action")]
         [DefaultValue("")]
         public string Action { get; set; }
@@ -33,5 +41,9 @@ namespace Cobinhood.API.Csharp.Client.Models.WebSocket
         [JsonProperty("precision")]
         [DefaultValue("")]
         public string Precision { get; set; }
+
+        [JsonProperty("id")]
+        [DefaultValue("")]
+        public string ID { get; set; }
     }
 }
